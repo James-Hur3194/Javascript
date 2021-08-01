@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
-const authRouter = require('./routes/admin/auth');
-const adminProductsRouter = require('./routes/products');
-const productsRouter = require('./routes/products');
-const cartsRouter = require('./routes/carts');
+const authRouter = require('./api/admin/auth');
+const adminProductsRouter = require('./api/products');
+const productsRouter = require('./api/products');
+const cartsRouter = require('./api/carts');
 
 const app = express();
 
@@ -52,6 +52,8 @@ app.get('/signup', (req, res) => {
 
 
 
-app.listen('3000', () => {
-  console.log('listening');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running in port ${PORT}`);
 });
